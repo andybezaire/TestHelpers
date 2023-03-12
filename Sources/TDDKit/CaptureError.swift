@@ -18,11 +18,11 @@ public extension XCTestCase {
     /// ```
     /// - Parameter block: The function call under test.
     /// - Returns: The error thrown from the block or nil if no error thrown.
-     func captureError<T>(
+    func captureError<T>(
         from block: @autoclosure () async throws -> T,
         file: StaticString = #file,
         line: UInt = #line
-     ) async -> Error {
+    ) async -> Error {
         do {
             _ = try await block()
             XCTFail("Should have thrown an Error.", file: file, line: line)
@@ -31,6 +31,6 @@ public extension XCTestCase {
             return error
         }
     }
-}
 
-public enum CaptureError: Error { case noErrorThrown }
+    enum CaptureError: Error { case noErrorThrown }
+}

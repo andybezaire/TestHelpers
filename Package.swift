@@ -7,7 +7,9 @@ let package = Package(
     products: [
         .library(name: "TDDKit", targets: ["TDDKit"])
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/themomax/swift-docc-plugin", branch: "add-extended-types-flag")
+    ],
     targets: [
         .target(name: "TDDKit", dependencies: []),
         .testTarget(name: "TDDKitTests", dependencies: ["TDDKit"])
